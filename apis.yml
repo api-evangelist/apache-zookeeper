@@ -1,0 +1,35 @@
+aid: apache-zookeeper
+name: Apache ZooKeeper
+description: >-
+  Apache ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. It is used by many distributed systems for coordination and leader election.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Distributed Coordination
+  - Configuration Management
+  - Service Discovery
+  - Leader Election
+created: '2026-03-16'
+modified: '2026-03-16'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/apache-zookeeper/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: apache-zookeeper:apache-zookeeper
+    name: Apache ZooKeeper
+    description: >-
+      ZooKeeper provides Java and C client APIs for distributed coordination operations including znodes, watches, ephemeral nodes, leader election, and distributed locks, plus the Curator high-level Java API and a REST API via the admin server.
+    humanURL: https://zookeeper.apache.org/doc/current/
+    tags:
+      - Java
+      - C
+      - Coordination
+      - Leader Election
+    properties:
+      - type: Documentation
+        url: https://zookeeper.apache.org/doc/current/
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
