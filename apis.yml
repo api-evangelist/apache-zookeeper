@@ -27,9 +27,13 @@ apis:
       - C
       - Coordination
       - Leader Election
+    baseURL: http://localhost:8080/commands
     properties:
       - type: Documentation
         url: https://zookeeper.apache.org/doc/current/
+      - type: OpenAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/apache-zookeeper/refs/heads/main/openapi/zookeeper-admin-api.yml
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com

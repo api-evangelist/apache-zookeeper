@@ -1,0 +1,717 @@
+openapi: 3.1.0
+info:
+  title: Apache ZooKeeper Admin Server API
+  description: >-
+    The ZooKeeper Admin Server provides an HTTP interface for monitoring and
+    management commands. It exposes four-letter-word equivalent commands as
+    REST endpoints for cluster monitoring, configuration, and diagnostics.
+  version: 3.9.0
+  contact:
+    name: Apache ZooKeeper
+    url: https://zookeeper.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: http://localhost:8080/commands
+    description: Local ZooKeeper Admin Server
+  - url: http://{zk_host}:{port}/commands
+    description: Custom ZooKeeper Admin Server
+    variables:
+      zk_host:
+        default: localhost
+      port:
+        default: '8080'
+paths:
+  /conf:
+    get:
+      operationId: getConfiguration
+      summary: Get server configuration
+      description: >-
+        Returns details of the current server configuration. Equivalent to
+        the 'conf' four-letter-word command.
+      tags:
+        - Configuration
+      responses:
+        '200':
+          description: Server configuration
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  client_port:
+                    type: integer
+                    description: Port for client connections
+                  data_dir:
+                    type: string
+                    description: Snapshot directory
+                  data_log_dir:
+                    type: string
+                    description: Transaction log directory
+                  tick_time:
+                    type: integer
+                    description: Basic time unit in milliseconds
+                  max_client_cnxns:
+                    type: integer
+                    description: Maximum client connections per IP
+                  min_session_timeout:
+                    type: integer
+                  max_session_timeout:
+                    type: integer
+                  server_id:
+                    type: integer
+                  init_limit:
+                    type: integer
+                  sync_limit:
+                    type: integer
+                  election_alg:
+                    type: integer
+                  election_port:
+                    type: integer
+                  quorum_port:
+                    type: integer
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /cons:
+    get:
+      operationId: getConnections
+      summary: List client connections
+      description: >-
+        Returns information about all client connections. Equivalent to the
+        'cons' four-letter-word command.
+      tags:
+        - Monitoring
+      responses:
+        '200':
+          description: Client connections information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  connections:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        remote_address:
+                          type: string
+                        interest_ops:
+                          type: integer
+                        outstanding_requests:
+                          type: integer
+                        packets_received:
+                          type: integer
+                        packets_sent:
+                          type: integer
+                        session_id:
+                          type: string
+                        session_timeout:
+                          type: integer
+                        last_operation:
+                          type: string
+                        last_latency:
+                          type: integer
+                        min_latency:
+                          type: integer
+                        avg_latency:
+                          type: number
+                        max_latency:
+                          type: integer
+                        last_response_timestamp:
+                          type: integer
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /crst:
+    get:
+      operationId: resetConnectionStats
+      summary: Reset connection statistics
+      description: Resets all connection statistics. Equivalent to the 'crst' command.
+      tags:
+        - Monitoring
+      responses:
+        '200':
+          description: Statistics reset
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /dump:
+    get:
+      operationId: getDump
+      summary: List sessions and ephemeral nodes
+      description: >-
+        Lists the outstanding sessions and ephemeral nodes. Equivalent to
+        the 'dump' four-letter-word command.
+      tags:
+        - Monitoring
+      responses:
+        '200':
+          description: Session and ephemeral node information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        session_id:
+                          type: string
+                        timeout:
+                          type: integer
+                        ephemeral_nodes:
+                          type: array
+                          items:
+                            type: string
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /environment:
+    get:
+      operationId: getEnvironment
+      summary: Get server environment
+      description: >-
+        Returns details of the serving environment. Equivalent to the 'envi'
+        four-letter-word command.
+      tags:
+        - Configuration
+      responses:
+        '200':
+          description: Server environment details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  zookeeper.version:
+                    type: string
+                  host.name:
+                    type: string
+                  java.version:
+                    type: string
+                  java.vendor:
+                    type: string
+                  java.home:
+                    type: string
+                  java.class.path:
+                    type: string
+                  java.library.path:
+                    type: string
+                  java.io.tmpdir:
+                    type: string
+                  java.compiler:
+                    type: string
+                  os.name:
+                    type: string
+                  os.arch:
+                    type: string
+                  os.version:
+                    type: string
+                  user.name:
+                    type: string
+                  user.home:
+                    type: string
+                  user.dir:
+                    type: string
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /ruok:
+    get:
+      operationId: healthCheck
+      summary: Health check
+      description: >-
+        Tests if server is running in a non-error state. Returns imok if
+        healthy. Equivalent to the 'ruok' command.
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Server health status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /stat:
+    get:
+      operationId: getServerStats
+      summary: Get server statistics
+      description: >-
+        Lists brief details for the server and connected clients. Equivalent
+        to the 'stat' four-letter-word command.
+      tags:
+        - Monitoring
+      responses:
+        '200':
+          description: Server statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                  read_only:
+                    type: boolean
+                  server_state:
+                    type: string
+                    enum:
+                      - leader
+                      - follower
+                      - standalone
+                      - observer
+                  znode_count:
+                    type: integer
+                  packet_sent_count:
+                    type: integer
+                  packet_received_count:
+                    type: integer
+                  min_latency:
+                    type: integer
+                  avg_latency:
+                    type: number
+                  max_latency:
+                    type: integer
+                  num_alive_connections:
+                    type: integer
+                  outstanding_requests:
+                    type: integer
+                  approximate_data_size:
+                    type: integer
+                  open_file_descriptor_count:
+                    type: integer
+                  max_file_descriptor_count:
+                    type: integer
+                  last_client_response_timestamp:
+                    type: integer
+                  connections:
+                    type: array
+                    items:
+                      type: object
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /srvr:
+    get:
+      operationId: getServerInfo
+      summary: Get full server details
+      description: >-
+        Lists full details for the server. Equivalent to the 'srvr'
+        four-letter-word command.
+      tags:
+        - Monitoring
+      responses:
+        '200':
+          description: Full server details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                  read_only:
+                    type: boolean
+                  server_state:
+                    type: string
+                  znode_count:
+                    type: integer
+                  approximate_data_size:
+                    type: integer
+                  max_latency:
+                    type: integer
+                  min_latency:
+                    type: integer
+                  avg_latency:
+                    type: number
+                  packet_sent_count:
+                    type: integer
+                  packet_received_count:
+                    type: integer
+                  num_alive_connections:
+                    type: integer
+                  outstanding_requests:
+                    type: integer
+                  server_id:
+                    type: integer
+                  proposal_sizes:
+                    type: string
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /srst:
+    get:
+      operationId: resetStats
+      summary: Reset server statistics
+      description: Resets server statistics. Equivalent to the 'srst' command.
+      tags:
+        - Monitoring
+      responses:
+        '200':
+          description: Statistics reset
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /mntr:
+    get:
+      operationId: getMonitorMetrics
+      summary: Get monitoring metrics
+      description: >-
+        Returns a list of variables for monitoring the health of the cluster.
+        Equivalent to the 'mntr' four-letter-word command.
+      tags:
+        - Monitoring
+      responses:
+        '200':
+          description: Monitoring metrics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  zk_version:
+                    type: string
+                  zk_avg_latency:
+                    type: number
+                  zk_max_latency:
+                    type: integer
+                  zk_min_latency:
+                    type: integer
+                  zk_packets_received:
+                    type: integer
+                  zk_packets_sent:
+                    type: integer
+                  zk_num_alive_connections:
+                    type: integer
+                  zk_outstanding_requests:
+                    type: integer
+                  zk_server_state:
+                    type: string
+                  zk_znode_count:
+                    type: integer
+                  zk_watch_count:
+                    type: integer
+                  zk_ephemerals_count:
+                    type: integer
+                  zk_approximate_data_size:
+                    type: integer
+                  zk_open_file_descriptor_count:
+                    type: integer
+                  zk_max_file_descriptor_count:
+                    type: integer
+                  zk_followers:
+                    type: integer
+                    description: Leader only
+                  zk_synced_followers:
+                    type: integer
+                    description: Leader only
+                  zk_pending_syncs:
+                    type: integer
+                    description: Leader only
+                  zk_last_proposal_size:
+                    type: integer
+                  zk_max_proposal_size:
+                    type: integer
+                  zk_min_proposal_size:
+                    type: integer
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /wchs:
+    get:
+      operationId: getWatchSummary
+      summary: Get watch summary
+      description: >-
+        Returns brief information on watches. Equivalent to the 'wchs'
+        four-letter-word command.
+      tags:
+        - Watches
+      responses:
+        '200':
+          description: Watch summary
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  num_connections:
+                    type: integer
+                  num_paths:
+                    type: integer
+                  num_total_watches:
+                    type: integer
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /wchc:
+    get:
+      operationId: getWatchesByConnection
+      summary: Get watches by connection
+      description: >-
+        Lists detailed information on watches by connection (session).
+        Equivalent to the 'wchc' four-letter-word command.
+      tags:
+        - Watches
+      responses:
+        '200':
+          description: Watches by connection
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+  /wchp:
+    get:
+      operationId: getWatchesByPath
+      summary: Get watches by path
+      description: >-
+        Lists detailed information on watches by path. Equivalent to the 'wchp'
+        four-letter-word command.
+      tags:
+        - Watches
+      responses:
+        '200':
+          description: Watches by path
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+  /dirs:
+    get:
+      operationId: getDirectorySize
+      summary: Get data directory sizes
+      description: Shows the total size of snapshot and log files in bytes.
+      tags:
+        - Configuration
+      responses:
+        '200':
+          description: Directory sizes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  datadir_size:
+                    type: integer
+                  logdir_size:
+                    type: integer
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /isro:
+    get:
+      operationId: isReadOnly
+      summary: Check read-only mode
+      description: Tests if server is in read-only mode. Equivalent to 'isro' command.
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Read-only mode status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  read_only:
+                    type: boolean
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /hash:
+    get:
+      operationId: getHash
+      summary: Get data tree digest
+      description: Returns the digest of the data tree.
+      tags:
+        - Monitoring
+      responses:
+        '200':
+          description: Data tree digest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  digests:
+                    type: object
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /voting_view:
+    get:
+      operationId: getVotingView
+      summary: Get current voting view
+      description: Returns the current voting members in the ensemble.
+      tags:
+        - Cluster
+      responses:
+        '200':
+          description: Voting view
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  current_config:
+                    type: object
+                    additionalProperties:
+                      type: string
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /leader:
+    get:
+      operationId: getLeader
+      summary: Check if leader
+      description: Returns whether the server is the current leader.
+      tags:
+        - Cluster
+      responses:
+        '200':
+          description: Leader status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  is_leader:
+                    type: boolean
+                  leader_id:
+                    type: integer
+                  leader_ip:
+                    type: string
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /initial_configuration:
+    get:
+      operationId: getInitialConfiguration
+      summary: Get initial configuration
+      description: Returns the initial configuration text used to start the ensemble.
+      tags:
+        - Configuration
+      responses:
+        '200':
+          description: Initial configuration
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  initial_configuration:
+                    type: string
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /last_snapshot:
+    get:
+      operationId: getLastSnapshot
+      summary: Get last snapshot info
+      description: Returns information about the last snapshot taken.
+      tags:
+        - Monitoring
+      responses:
+        '200':
+          description: Last snapshot information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  last_snapshot_zxid:
+                    type: string
+                  last_snapshot_size:
+                    type: integer
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+  /system_properties:
+    get:
+      operationId: getSystemProperties
+      summary: Get JVM system properties
+      description: Returns the JVM system properties.
+      tags:
+        - Configuration
+      responses:
+        '200':
+          description: System properties
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+tags:
+  - name: Health
+    description: Server health checks
+  - name: Monitoring
+    description: Server statistics and metrics
+  - name: Configuration
+    description: Server configuration information
+  - name: Watches
+    description: ZooKeeper watch information
+  - name: Cluster
+    description: Cluster and ensemble information
