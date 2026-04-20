@@ -13,25 +13,25 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
 servers:
-  - url: http://localhost:8080/commands
-    description: Local ZooKeeper Admin Server
-  - url: http://{zk_host}:{port}/commands
-    description: Custom ZooKeeper Admin Server
-    variables:
-      zk_host:
-        default: localhost
-      port:
-        default: '8080'
+- url: http://localhost:8080/commands
+  description: Local ZooKeeper Admin Server
+- url: http://{zk_host}:{port}/commands
+  description: Custom ZooKeeper Admin Server
+  variables:
+    zk_host:
+      default: localhost
+    port:
+      default: '8080'
 paths:
   /conf:
     get:
       operationId: getConfiguration
-      summary: Get server configuration
+      summary: Apache ZooKeeper Get Server Configuration
       description: >-
         Returns details of the current server configuration. Equivalent to
         the 'conf' four-letter-word command.
       tags:
-        - Configuration
+      - Configuration
       responses:
         '200':
           description: Server configuration
@@ -76,15 +76,23 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetConfiguration200Example:
+                  summary: Default getConfiguration 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /cons:
     get:
       operationId: getConnections
-      summary: List client connections
+      summary: Apache ZooKeeper List Client Connections
       description: >-
         Returns information about all client connections. Equivalent to the
         'cons' four-letter-word command.
       tags:
-        - Monitoring
+      - Monitoring
       responses:
         '200':
           description: Client connections information
@@ -129,13 +137,21 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetConnections200Example:
+                  summary: Default getConnections 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /crst:
     get:
       operationId: resetConnectionStats
-      summary: Reset connection statistics
+      summary: Apache ZooKeeper Reset Connection Statistics
       description: Resets all connection statistics. Equivalent to the 'crst' command.
       tags:
-        - Monitoring
+      - Monitoring
       responses:
         '200':
           description: Statistics reset
@@ -149,15 +165,23 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                ResetConnectionStats200Example:
+                  summary: Default resetConnectionStats 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /dump:
     get:
       operationId: getDump
-      summary: List sessions and ephemeral nodes
+      summary: Apache ZooKeeper List Sessions and Ephemeral Nodes
       description: >-
         Lists the outstanding sessions and ephemeral nodes. Equivalent to
         the 'dump' four-letter-word command.
       tags:
-        - Monitoring
+      - Monitoring
       responses:
         '200':
           description: Session and ephemeral node information
@@ -184,15 +208,23 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetDump200Example:
+                  summary: Default getDump 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /environment:
     get:
       operationId: getEnvironment
-      summary: Get server environment
+      summary: Apache ZooKeeper Get Server Environment
       description: >-
         Returns details of the serving environment. Equivalent to the 'envi'
         four-letter-word command.
       tags:
-        - Configuration
+      - Configuration
       responses:
         '200':
           description: Server environment details
@@ -236,15 +268,23 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetEnvironment200Example:
+                  summary: Default getEnvironment 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /ruok:
     get:
       operationId: healthCheck
-      summary: Health check
+      summary: Apache ZooKeeper Health Check
       description: >-
         Tests if server is running in a non-error state. Returns imok if
         healthy. Equivalent to the 'ruok' command.
       tags:
-        - Health
+      - Health
       responses:
         '200':
           description: Server health status
@@ -258,15 +298,23 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                HealthCheck200Example:
+                  summary: Default healthCheck 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /stat:
     get:
       operationId: getServerStats
-      summary: Get server statistics
+      summary: Apache ZooKeeper Get Server Statistics
       description: >-
         Lists brief details for the server and connected clients. Equivalent
         to the 'stat' four-letter-word command.
       tags:
-        - Monitoring
+      - Monitoring
       responses:
         '200':
           description: Server statistics
@@ -282,10 +330,10 @@ paths:
                   server_state:
                     type: string
                     enum:
-                      - leader
-                      - follower
-                      - standalone
-                      - observer
+                    - leader
+                    - follower
+                    - standalone
+                    - observer
                   znode_count:
                     type: integer
                   packet_sent_count:
@@ -319,15 +367,23 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetServerStats200Example:
+                  summary: Default getServerStats 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /srvr:
     get:
       operationId: getServerInfo
-      summary: Get full server details
+      summary: Apache ZooKeeper Get Full Server Details
       description: >-
         Lists full details for the server. Equivalent to the 'srvr'
         four-letter-word command.
       tags:
-        - Monitoring
+      - Monitoring
       responses:
         '200':
           description: Full server details
@@ -369,13 +425,21 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetServerInfo200Example:
+                  summary: Default getServerInfo 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /srst:
     get:
       operationId: resetStats
-      summary: Reset server statistics
+      summary: Apache ZooKeeper Reset Server Statistics
       description: Resets server statistics. Equivalent to the 'srst' command.
       tags:
-        - Monitoring
+      - Monitoring
       responses:
         '200':
           description: Statistics reset
@@ -389,15 +453,23 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                ResetStats200Example:
+                  summary: Default resetStats 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /mntr:
     get:
       operationId: getMonitorMetrics
-      summary: Get monitoring metrics
+      summary: Apache ZooKeeper Get Monitoring Metrics
       description: >-
         Returns a list of variables for monitoring the health of the cluster.
         Equivalent to the 'mntr' four-letter-word command.
       tags:
-        - Monitoring
+      - Monitoring
       responses:
         '200':
           description: Monitoring metrics
@@ -456,15 +528,23 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetMonitorMetrics200Example:
+                  summary: Default getMonitorMetrics 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /wchs:
     get:
       operationId: getWatchSummary
-      summary: Get watch summary
+      summary: Apache ZooKeeper Get Watch Summary
       description: >-
         Returns brief information on watches. Equivalent to the 'wchs'
         four-letter-word command.
       tags:
-        - Watches
+      - Watches
       responses:
         '200':
           description: Watch summary
@@ -484,15 +564,23 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetWatchSummary200Example:
+                  summary: Default getWatchSummary 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /wchc:
     get:
       operationId: getWatchesByConnection
-      summary: Get watches by connection
+      summary: Apache ZooKeeper Get Watches by Connection
       description: >-
         Lists detailed information on watches by connection (session).
         Equivalent to the 'wchc' four-letter-word command.
       tags:
-        - Watches
+      - Watches
       responses:
         '200':
           description: Watches by connection
@@ -504,15 +592,23 @@ paths:
                   type: array
                   items:
                     type: string
+              examples:
+                GetWatchesByConnection200Example:
+                  summary: Default getWatchesByConnection 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /wchp:
     get:
       operationId: getWatchesByPath
-      summary: Get watches by path
+      summary: Apache ZooKeeper Get Watches by Path
       description: >-
         Lists detailed information on watches by path. Equivalent to the 'wchp'
         four-letter-word command.
       tags:
-        - Watches
+      - Watches
       responses:
         '200':
           description: Watches by path
@@ -524,13 +620,21 @@ paths:
                   type: array
                   items:
                     type: string
+              examples:
+                GetWatchesByPath200Example:
+                  summary: Default getWatchesByPath 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /dirs:
     get:
       operationId: getDirectorySize
-      summary: Get data directory sizes
+      summary: Apache ZooKeeper Get Data Directory Sizes
       description: Shows the total size of snapshot and log files in bytes.
       tags:
-        - Configuration
+      - Configuration
       responses:
         '200':
           description: Directory sizes
@@ -548,13 +652,21 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetDirectorySize200Example:
+                  summary: Default getDirectorySize 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /isro:
     get:
       operationId: isReadOnly
-      summary: Check read-only mode
+      summary: Apache ZooKeeper Check Read-only Mode
       description: Tests if server is in read-only mode. Equivalent to 'isro' command.
       tags:
-        - Health
+      - Health
       responses:
         '200':
           description: Read-only mode status
@@ -570,13 +682,21 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                IsReadOnly200Example:
+                  summary: Default isReadOnly 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /hash:
     get:
       operationId: getHash
-      summary: Get data tree digest
+      summary: Apache ZooKeeper Get Data Tree Digest
       description: Returns the digest of the data tree.
       tags:
-        - Monitoring
+      - Monitoring
       responses:
         '200':
           description: Data tree digest
@@ -592,13 +712,21 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetHash200Example:
+                  summary: Default getHash 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /voting_view:
     get:
       operationId: getVotingView
-      summary: Get current voting view
+      summary: Apache ZooKeeper Get Current Voting View
       description: Returns the current voting members in the ensemble.
       tags:
-        - Cluster
+      - Cluster
       responses:
         '200':
           description: Voting view
@@ -616,13 +744,21 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetVotingView200Example:
+                  summary: Default getVotingView 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /leader:
     get:
       operationId: getLeader
-      summary: Check if leader
+      summary: Apache ZooKeeper Check if Leader
       description: Returns whether the server is the current leader.
       tags:
-        - Cluster
+      - Cluster
       responses:
         '200':
           description: Leader status
@@ -642,13 +778,21 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetLeader200Example:
+                  summary: Default getLeader 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /initial_configuration:
     get:
       operationId: getInitialConfiguration
-      summary: Get initial configuration
+      summary: Apache ZooKeeper Get Initial Configuration
       description: Returns the initial configuration text used to start the ensemble.
       tags:
-        - Configuration
+      - Configuration
       responses:
         '200':
           description: Initial configuration
@@ -664,13 +808,21 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetInitialConfiguration200Example:
+                  summary: Default getInitialConfiguration 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /last_snapshot:
     get:
       operationId: getLastSnapshot
-      summary: Get last snapshot info
+      summary: Apache ZooKeeper Get Last Snapshot Info
       description: Returns information about the last snapshot taken.
       tags:
-        - Monitoring
+      - Monitoring
       responses:
         '200':
           description: Last snapshot information
@@ -688,13 +840,21 @@ paths:
                   error:
                     type: string
                     nullable: true
+              examples:
+                GetLastSnapshot200Example:
+                  summary: Default getLastSnapshot 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /system_properties:
     get:
       operationId: getSystemProperties
-      summary: Get JVM system properties
+      summary: Apache ZooKeeper Get JVM System Properties
       description: Returns the JVM system properties.
       tags:
-        - Configuration
+      - Configuration
       responses:
         '200':
           description: System properties
@@ -704,14 +864,22 @@ paths:
                 type: object
                 additionalProperties:
                   type: string
+              examples:
+                GetSystemProperties200Example:
+                  summary: Default getSystemProperties 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 tags:
-  - name: Health
-    description: Server health checks
-  - name: Monitoring
-    description: Server statistics and metrics
-  - name: Configuration
-    description: Server configuration information
-  - name: Watches
-    description: ZooKeeper watch information
-  - name: Cluster
-    description: Cluster and ensemble information
+- name: Health
+  description: Server health checks
+- name: Monitoring
+  description: Server statistics and metrics
+- name: Configuration
+  description: Server configuration information
+- name: Watches
+  description: ZooKeeper watch information
+- name: Cluster
+  description: Cluster and ensemble information
