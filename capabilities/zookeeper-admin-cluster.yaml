@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache ZooKeeper Admin Server API — Cluster
+  description: 'Apache ZooKeeper Admin Server API — Cluster. 2 operations. Lead operation: Apache ZooKeeper Check if Leader.
+    Self-contained Naftiko capability covering one Apache Zookeeper business surface.'
+  tags:
+  - Apache Zookeeper
+  - Cluster
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_ZOOKEEPER_API_KEY: APACHE_ZOOKEEPER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: zookeeper-admin-cluster
+    baseUri: http://localhost:8080/commands
+    description: Apache ZooKeeper Admin Server API — Cluster business capability. Self-contained, no shared references.
+    resources:
+    - name: leader
+      path: /leader
+      operations:
+      - name: getleader
+        method: GET
+        description: Apache ZooKeeper Check if Leader
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: voting_view
+      path: /voting_view
+      operations:
+      - name: getvotingview
+        method: GET
+        description: Apache ZooKeeper Get Current Voting View
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: zookeeper-admin-cluster-rest
+    port: 8080
+    description: REST adapter for Apache ZooKeeper Admin Server API — Cluster. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/leader
+      name: leader
+      description: REST surface for leader.
+      operations:
+      - method: GET
+        name: getleader
+        description: Apache ZooKeeper Check if Leader
+        call: zookeeper-admin-cluster.getleader
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/voting-view
+      name: voting-view
+      description: REST surface for voting_view.
+      operations:
+      - method: GET
+        name: getvotingview
+        description: Apache ZooKeeper Get Current Voting View
+        call: zookeeper-admin-cluster.getvotingview
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: zookeeper-admin-cluster-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache ZooKeeper Admin Server API — Cluster. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: apache-zookeeper-check-if-leader
+      description: Apache ZooKeeper Check if Leader
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: zookeeper-admin-cluster.getleader
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-zookeeper-get-current-voting
+      description: Apache ZooKeeper Get Current Voting View
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: zookeeper-admin-cluster.getvotingview
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache ZooKeeper Admin Server API — Watches
+  description: 'Apache ZooKeeper Admin Server API — Watches. 3 operations. Lead operation: Apache ZooKeeper Get Watches by
+    Connection. Self-contained Naftiko capability covering one Apache Zookeeper business surface.'
+  tags:
+  - Apache Zookeeper
+  - Watches
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_ZOOKEEPER_API_KEY: APACHE_ZOOKEEPER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: zookeeper-admin-watches
+    baseUri: http://localhost:8080/commands
+    description: Apache ZooKeeper Admin Server API — Watches business capability. Self-contained, no shared references.
+    resources:
+    - name: wchc
+      path: /wchc
+      operations:
+      - name: getwatchesbyconnection
+        method: GET
+        description: Apache ZooKeeper Get Watches by Connection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: wchp
+      path: /wchp
+      operations:
+      - name: getwatchesbypath
+        method: GET
+        description: Apache ZooKeeper Get Watches by Path
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: wchs
+      path: /wchs
+      operations:
+      - name: getwatchsummary
+        method: GET
+        description: Apache ZooKeeper Get Watch Summary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: zookeeper-admin-watches-rest
+    port: 8080
+    description: REST adapter for Apache ZooKeeper Admin Server API — Watches. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/wchc
+      name: wchc
+      description: REST surface for wchc.
+      operations:
+      - method: GET
+        name: getwatchesbyconnection
+        description: Apache ZooKeeper Get Watches by Connection
+        call: zookeeper-admin-watches.getwatchesbyconnection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/wchp
+      name: wchp
+      description: REST surface for wchp.
+      operations:
+      - method: GET
+        name: getwatchesbypath
+        description: Apache ZooKeeper Get Watches by Path
+        call: zookeeper-admin-watches.getwatchesbypath
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/wchs
+      name: wchs
+      description: REST surface for wchs.
+      operations:
+      - method: GET
+        name: getwatchsummary
+        description: Apache ZooKeeper Get Watch Summary
+        call: zookeeper-admin-watches.getwatchsummary
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: zookeeper-admin-watches-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache ZooKeeper Admin Server API — Watches. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: apache-zookeeper-get-watches-connection
+      description: Apache ZooKeeper Get Watches by Connection
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: zookeeper-admin-watches.getwatchesbyconnection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-zookeeper-get-watches-path
+      description: Apache ZooKeeper Get Watches by Path
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: zookeeper-admin-watches.getwatchesbypath
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-zookeeper-get-watch-summary
+      description: Apache ZooKeeper Get Watch Summary
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: zookeeper-admin-watches.getwatchsummary
+      outputParameters:
+      - type: object
+        mapping: $.
