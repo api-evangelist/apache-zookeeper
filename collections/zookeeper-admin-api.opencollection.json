@@ -1,0 +1,281 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache ZooKeeper Admin Server API",
+    "version": "3.9.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Server Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/conf"
+          },
+          "docs": "Returns details of the current server configuration. Equivalent to the 'conf' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Server Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/environment"
+          },
+          "docs": "Returns details of the serving environment. Equivalent to the 'envi' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Data Directory Sizes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/dirs"
+          },
+          "docs": "Shows the total size of snapshot and log files in bytes."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Initial Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/initial_configuration"
+          },
+          "docs": "Returns the initial configuration text used to start the ensemble."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get JVM System Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/system_properties"
+          },
+          "docs": "Returns the JVM system properties."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Monitoring",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ZooKeeper List Client Connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/cons"
+          },
+          "docs": "Returns information about all client connections. Equivalent to the 'cons' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Reset Connection Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/crst"
+          },
+          "docs": "Resets all connection statistics. Equivalent to the 'crst' command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper List Sessions and Ephemeral Nodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/dump"
+          },
+          "docs": "Lists the outstanding sessions and ephemeral nodes. Equivalent to the 'dump' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Server Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/stat"
+          },
+          "docs": "Lists brief details for the server and connected clients. Equivalent to the 'stat' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Full Server Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/srvr"
+          },
+          "docs": "Lists full details for the server. Equivalent to the 'srvr' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Reset Server Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/srst"
+          },
+          "docs": "Resets server statistics. Equivalent to the 'srst' command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Monitoring Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/mntr"
+          },
+          "docs": "Returns a list of variables for monitoring the health of the cluster. Equivalent to the 'mntr' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Data Tree Digest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/hash"
+          },
+          "docs": "Returns the digest of the data tree."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Last Snapshot Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/last_snapshot"
+          },
+          "docs": "Returns information about the last snapshot taken."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ZooKeeper Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/ruok"
+          },
+          "docs": "Tests if server is running in a non-error state. Returns imok if healthy. Equivalent to the 'ruok' command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Check Read-only Mode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/isro"
+          },
+          "docs": "Tests if server is in read-only mode. Equivalent to 'isro' command."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Watches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Watch Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/wchs"
+          },
+          "docs": "Returns brief information on watches. Equivalent to the 'wchs' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Watches by Connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/wchc"
+          },
+          "docs": "Lists detailed information on watches by connection (session). Equivalent to the 'wchc' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Watches by Path",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/wchp"
+          },
+          "docs": "Lists detailed information on watches by path. Equivalent to the 'wchp' four-letter-word command."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Current Voting View",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/voting_view"
+          },
+          "docs": "Returns the current voting members in the ensemble."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Check if Leader",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/leader"
+          },
+          "docs": "Returns whether the server is the current leader."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
