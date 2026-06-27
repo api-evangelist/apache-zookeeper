@@ -59,10 +59,10 @@ apis:
         url: https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html
       - type: APIReference
         url: https://zookeeper.apache.org/doc/current/apidocs/zookeeper-server/
-      - type: SDK
+      - type: SDKs
         url: https://search.maven.org/search?q=org.apache.zookeeper
         title: Java Maven SDK
-      - type: SDK
+      - type: SDKs
         url: https://curator.apache.org/
         title: Apache Curator (High-Level Java Client)
 common:
@@ -82,10 +82,10 @@ common:
     url: https://www.apache.org/licenses/
   - type: SpectralRules
     url: rules/apache-zookeeper-spectral-rules.yml
-  - type: SDK
+  - type: SDKs
     url: https://pypi.org/project/kazoo/
     title: Python Kazoo Client
-  - type: SDK
+  - type: SDKs
     url: https://www.npmjs.com/package/node-zookeeper-client
     title: Node.js Client
   - type: Features
