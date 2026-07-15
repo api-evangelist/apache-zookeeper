@@ -66,6 +66,8 @@ apis:
         url: https://curator.apache.org/
         title: Apache Curator (High-Level Java Client)
 common:
+  - type: AgenticAccess
+    url: agentic-access/apache-zookeeper-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/apache-zookeeper-vulnerability-disclosure.yml
   - type: DomainSecurity
