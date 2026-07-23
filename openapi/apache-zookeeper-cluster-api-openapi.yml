@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: Apache ZooKeeper Admin Server Cluster API
+  description: The ZooKeeper Admin Server provides an HTTP interface for monitoring and management commands. It exposes four-letter-word equivalent commands as REST endpoints for cluster monitoring, configuration, and diagnostics.
+  version: 3.9.0
+  contact:
+    name: Apache ZooKeeper
+    url: https://zookeeper.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080/commands
+  description: Local ZooKeeper Admin Server
+- url: http://{zk_host}:{port}/commands
+  description: Custom ZooKeeper Admin Server
+  variables:
+    zk_host:
+      default: localhost
+    port:
+      default: '8080'
+tags:
+- name: Cluster
+  description: Cluster and ensemble information
+paths:
+  /voting_view:
+    get:
+      operationId: getVotingView
+      summary: Apache ZooKeeper Get Current Voting View
+      description: Returns the current voting members in the ensemble.
+      tags:
+      - Cluster
+      responses:
+        '200':
+          description: Voting view
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  current_config:
+                    type: object
+                    additionalProperties:
+                      type: string
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                GetVotingView200Example:
+                  summary: Default getVotingView 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /leader:
+    get:
+      operationId: getLeader
+      summary: Apache ZooKeeper Check if Leader
+      description: Returns whether the server is the current leader.
+      tags:
+      - Cluster
+      responses:
+        '200':
+          description: Leader status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  is_leader:
+                    type: boolean
+                  leader_id:
+                    type: integer
+                  leader_ip:
+                    type: string
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                GetLeader200Example:
+                  summary: Default getLeader 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK

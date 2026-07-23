@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: Apache ZooKeeper Admin Server Cluster Watches API
+  description: The ZooKeeper Admin Server provides an HTTP interface for monitoring and management commands. It exposes four-letter-word equivalent commands as REST endpoints for cluster monitoring, configuration, and diagnostics.
+  version: 3.9.0
+  contact:
+    name: Apache ZooKeeper
+    url: https://zookeeper.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080/commands
+  description: Local ZooKeeper Admin Server
+- url: http://{zk_host}:{port}/commands
+  description: Custom ZooKeeper Admin Server
+  variables:
+    zk_host:
+      default: localhost
+    port:
+      default: '8080'
+tags:
+- name: Watches
+  description: ZooKeeper watch information
+paths:
+  /wchs:
+    get:
+      operationId: getWatchSummary
+      summary: Apache ZooKeeper Get Watch Summary
+      description: Returns brief information on watches. Equivalent to the 'wchs' four-letter-word command.
+      tags:
+      - Watches
+      responses:
+        '200':
+          description: Watch summary
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  num_connections:
+                    type: integer
+                  num_paths:
+                    type: integer
+                  num_total_watches:
+                    type: integer
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                GetWatchSummary200Example:
+                  summary: Default getWatchSummary 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /wchc:
+    get:
+      operationId: getWatchesByConnection
+      summary: Apache ZooKeeper Get Watches by Connection
+      description: Lists detailed information on watches by connection (session). Equivalent to the 'wchc' four-letter-word command.
+      tags:
+      - Watches
+      responses:
+        '200':
+          description: Watches by connection
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+              examples:
+                GetWatchesByConnection200Example:
+                  summary: Default getWatchesByConnection 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /wchp:
+    get:
+      operationId: getWatchesByPath
+      summary: Apache ZooKeeper Get Watches by Path
+      description: Lists detailed information on watches by path. Equivalent to the 'wchp' four-letter-word command.
+      tags:
+      - Watches
+      responses:
+        '200':
+          description: Watches by path
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+              examples:
+                GetWatchesByPath200Example:
+                  summary: Default getWatchesByPath 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK

@@ -1,0 +1,83 @@
+openapi: 3.1.0
+info:
+  title: Apache ZooKeeper Admin Server Cluster Health API
+  description: The ZooKeeper Admin Server provides an HTTP interface for monitoring and management commands. It exposes four-letter-word equivalent commands as REST endpoints for cluster monitoring, configuration, and diagnostics.
+  version: 3.9.0
+  contact:
+    name: Apache ZooKeeper
+    url: https://zookeeper.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080/commands
+  description: Local ZooKeeper Admin Server
+- url: http://{zk_host}:{port}/commands
+  description: Custom ZooKeeper Admin Server
+  variables:
+    zk_host:
+      default: localhost
+    port:
+      default: '8080'
+tags:
+- name: Health
+  description: Server health checks
+paths:
+  /ruok:
+    get:
+      operationId: healthCheck
+      summary: Apache ZooKeeper Health Check
+      description: Tests if server is running in a non-error state. Returns imok if healthy. Equivalent to the 'ruok' command.
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Server health status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                HealthCheck200Example:
+                  summary: Default healthCheck 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /isro:
+    get:
+      operationId: isReadOnly
+      summary: Apache ZooKeeper Check Read-only Mode
+      description: Tests if server is in read-only mode. Equivalent to 'isro' command.
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Read-only mode status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  read_only:
+                    type: boolean
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                IsReadOnly200Example:
+                  summary: Default isReadOnly 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK

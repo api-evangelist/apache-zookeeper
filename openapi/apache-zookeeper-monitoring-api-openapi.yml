@@ -1,0 +1,439 @@
+openapi: 3.1.0
+info:
+  title: Apache ZooKeeper Admin Server Cluster Monitoring API
+  description: The ZooKeeper Admin Server provides an HTTP interface for monitoring and management commands. It exposes four-letter-word equivalent commands as REST endpoints for cluster monitoring, configuration, and diagnostics.
+  version: 3.9.0
+  contact:
+    name: Apache ZooKeeper
+    url: https://zookeeper.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080/commands
+  description: Local ZooKeeper Admin Server
+- url: http://{zk_host}:{port}/commands
+  description: Custom ZooKeeper Admin Server
+  variables:
+    zk_host:
+      default: localhost
+    port:
+      default: '8080'
+tags:
+- name: Monitoring
+  description: Server statistics and metrics
+paths:
+  /cons:
+    get:
+      operationId: getConnections
+      summary: Apache ZooKeeper List Client Connections
+      description: Returns information about all client connections. Equivalent to the 'cons' four-letter-word command.
+      tags:
+      - Monitoring
+      responses:
+        '200':
+          description: Client connections information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  connections:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        remote_address:
+                          type: string
+                        interest_ops:
+                          type: integer
+                        outstanding_requests:
+                          type: integer
+                        packets_received:
+                          type: integer
+                        packets_sent:
+                          type: integer
+                        session_id:
+                          type: string
+                        session_timeout:
+                          type: integer
+                        last_operation:
+                          type: string
+                        last_latency:
+                          type: integer
+                        min_latency:
+                          type: integer
+                        avg_latency:
+                          type: number
+                        max_latency:
+                          type: integer
+                        last_response_timestamp:
+                          type: integer
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                GetConnections200Example:
+                  summary: Default getConnections 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /crst:
+    get:
+      operationId: resetConnectionStats
+      summary: Apache ZooKeeper Reset Connection Statistics
+      description: Resets all connection statistics. Equivalent to the 'crst' command.
+      tags:
+      - Monitoring
+      responses:
+        '200':
+          description: Statistics reset
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                ResetConnectionStats200Example:
+                  summary: Default resetConnectionStats 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /dump:
+    get:
+      operationId: getDump
+      summary: Apache ZooKeeper List Sessions and Ephemeral Nodes
+      description: Lists the outstanding sessions and ephemeral nodes. Equivalent to the 'dump' four-letter-word command.
+      tags:
+      - Monitoring
+      responses:
+        '200':
+          description: Session and ephemeral node information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        session_id:
+                          type: string
+                        timeout:
+                          type: integer
+                        ephemeral_nodes:
+                          type: array
+                          items:
+                            type: string
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                GetDump200Example:
+                  summary: Default getDump 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /stat:
+    get:
+      operationId: getServerStats
+      summary: Apache ZooKeeper Get Server Statistics
+      description: Lists brief details for the server and connected clients. Equivalent to the 'stat' four-letter-word command.
+      tags:
+      - Monitoring
+      responses:
+        '200':
+          description: Server statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                  read_only:
+                    type: boolean
+                  server_state:
+                    type: string
+                    enum:
+                    - leader
+                    - follower
+                    - standalone
+                    - observer
+                  znode_count:
+                    type: integer
+                  packet_sent_count:
+                    type: integer
+                  packet_received_count:
+                    type: integer
+                  min_latency:
+                    type: integer
+                  avg_latency:
+                    type: number
+                  max_latency:
+                    type: integer
+                  num_alive_connections:
+                    type: integer
+                  outstanding_requests:
+                    type: integer
+                  approximate_data_size:
+                    type: integer
+                  open_file_descriptor_count:
+                    type: integer
+                  max_file_descriptor_count:
+                    type: integer
+                  last_client_response_timestamp:
+                    type: integer
+                  connections:
+                    type: array
+                    items:
+                      type: object
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                GetServerStats200Example:
+                  summary: Default getServerStats 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /srvr:
+    get:
+      operationId: getServerInfo
+      summary: Apache ZooKeeper Get Full Server Details
+      description: Lists full details for the server. Equivalent to the 'srvr' four-letter-word command.
+      tags:
+      - Monitoring
+      responses:
+        '200':
+          description: Full server details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                  read_only:
+                    type: boolean
+                  server_state:
+                    type: string
+                  znode_count:
+                    type: integer
+                  approximate_data_size:
+                    type: integer
+                  max_latency:
+                    type: integer
+                  min_latency:
+                    type: integer
+                  avg_latency:
+                    type: number
+                  packet_sent_count:
+                    type: integer
+                  packet_received_count:
+                    type: integer
+                  num_alive_connections:
+                    type: integer
+                  outstanding_requests:
+                    type: integer
+                  server_id:
+                    type: integer
+                  proposal_sizes:
+                    type: string
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                GetServerInfo200Example:
+                  summary: Default getServerInfo 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /srst:
+    get:
+      operationId: resetStats
+      summary: Apache ZooKeeper Reset Server Statistics
+      description: Resets server statistics. Equivalent to the 'srst' command.
+      tags:
+      - Monitoring
+      responses:
+        '200':
+          description: Statistics reset
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                ResetStats200Example:
+                  summary: Default resetStats 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /mntr:
+    get:
+      operationId: getMonitorMetrics
+      summary: Apache ZooKeeper Get Monitoring Metrics
+      description: Returns a list of variables for monitoring the health of the cluster. Equivalent to the 'mntr' four-letter-word command.
+      tags:
+      - Monitoring
+      responses:
+        '200':
+          description: Monitoring metrics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  zk_version:
+                    type: string
+                  zk_avg_latency:
+                    type: number
+                  zk_max_latency:
+                    type: integer
+                  zk_min_latency:
+                    type: integer
+                  zk_packets_received:
+                    type: integer
+                  zk_packets_sent:
+                    type: integer
+                  zk_num_alive_connections:
+                    type: integer
+                  zk_outstanding_requests:
+                    type: integer
+                  zk_server_state:
+                    type: string
+                  zk_znode_count:
+                    type: integer
+                  zk_watch_count:
+                    type: integer
+                  zk_ephemerals_count:
+                    type: integer
+                  zk_approximate_data_size:
+                    type: integer
+                  zk_open_file_descriptor_count:
+                    type: integer
+                  zk_max_file_descriptor_count:
+                    type: integer
+                  zk_followers:
+                    type: integer
+                    description: Leader only
+                  zk_synced_followers:
+                    type: integer
+                    description: Leader only
+                  zk_pending_syncs:
+                    type: integer
+                    description: Leader only
+                  zk_last_proposal_size:
+                    type: integer
+                  zk_max_proposal_size:
+                    type: integer
+                  zk_min_proposal_size:
+                    type: integer
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                GetMonitorMetrics200Example:
+                  summary: Default getMonitorMetrics 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /hash:
+    get:
+      operationId: getHash
+      summary: Apache ZooKeeper Get Data Tree Digest
+      description: Returns the digest of the data tree.
+      tags:
+      - Monitoring
+      responses:
+        '200':
+          description: Data tree digest
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  digests:
+                    type: object
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                GetHash200Example:
+                  summary: Default getHash 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /last_snapshot:
+    get:
+      operationId: getLastSnapshot
+      summary: Apache ZooKeeper Get Last Snapshot Info
+      description: Returns information about the last snapshot taken.
+      tags:
+      - Monitoring
+      responses:
+        '200':
+          description: Last snapshot information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  last_snapshot_zxid:
+                    type: string
+                  last_snapshot_size:
+                    type: integer
+                  command:
+                    type: string
+                  error:
+                    type: string
+                    nullable: true
+              examples:
+                GetLastSnapshot200Example:
+                  summary: Default getLastSnapshot 200 response
+                  x-microcks-default: true
+                  value: {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
