@@ -7,9 +7,21 @@ description: >-
   election and distributed locking. ZooKeeper exposes a Java/C client API and an HTTP Admin Server API for monitoring
   and management. It is widely used by Kafka, Hadoop, HBase, Storm, and other distributed systems.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-zookeeper.png
 tags:
   - Configuration Management
   - Distributed Coordination
@@ -21,50 +33,91 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-zookeeper/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: apache-zookeeper:apache-zookeeper-admin-api
-    name: Apache ZooKeeper Admin Server API
-    description: >-
-      The ZooKeeper Admin Server provides HTTP endpoints on port 8080 that expose the four-letter-word equivalent
-      commands as REST endpoints for cluster monitoring, configuration, and diagnostics. Endpoints include
-      /commands/conf (server configuration), /commands/stats (server statistics), /commands/mntr (monitoring metrics),
-      /commands/envi (environment info), /commands/dump (session/ephemeral node dump), /commands/crst (connection
-      reset), and /commands/leader (leader info for QuorumPeerMain).
-    humanURL: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
-    baseURL: http://localhost:8080/commands
-    tags:
-      - REST
-      - Admin
-      - Monitoring
-      - Cluster Management
-    properties:
-      - type: Documentation
-        url: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
-      - type: OpenAPI
-        url: openapi/zookeeper-admin-api.yml
-  - aid: apache-zookeeper:apache-zookeeper-client-api
-    name: Apache ZooKeeper Client API
-    description: >-
-      The ZooKeeper client API provides Java and C language bindings for distributed coordination operations. Operations
-      include create (create znodes), delete, exists (check existence), getData, setData, getChildren, getACL, setACL,
-      and multi (batch operations). Watch mechanisms notify clients of znode changes. Curator is the recommended
-      high-level Java client with recipes for distributed locks, leader elections, service discovery, and caches.
-    humanURL: https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html
-    tags:
-      - Java
-      - C
-      - Coordination
-      - Leader Election
-    properties:
-      - type: Documentation
-        url: https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html
-      - type: APIReference
-        url: https://zookeeper.apache.org/doc/current/apidocs/zookeeper-server/
-      - type: SDKs
-        url: https://search.maven.org/search?q=org.apache.zookeeper
-        title: Java Maven SDK
-      - type: SDKs
-        url: https://curator.apache.org/
-        title: Apache Curator (High-Level Java Client)
+- aid: apache-zookeeper:apache-zookeeper-client-api
+  name: Apache ZooKeeper Client API
+  description: >-
+    The ZooKeeper client API provides Java and C language bindings for distributed coordination operations.
+    Operations include create (create znodes), delete, exists (check existence), getData, setData, getChildren,
+    getACL, setACL, and multi (batch operations). Watch mechanisms notify clients of znode changes. Curator
+    is the recommended high-level Java client with recipes for distributed locks, leader elections, service
+    discovery, and caches.
+  humanURL: https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html
+  tags:
+  - Java
+  - C
+  - Coordination
+  - Leader Election
+  properties:
+  - type: Documentation
+    url: https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html
+  - type: APIReference
+    url: https://zookeeper.apache.org/doc/current/apidocs/zookeeper-server/
+  - type: SDKs
+    url: https://search.maven.org/search?q=org.apache.zookeeper
+    title: Java Maven SDK
+  - type: SDKs
+    url: https://curator.apache.org/
+    title: Apache Curator (High-Level Java Client)
+- aid: apache-zookeeper:apache-zookeeper-cluster-api
+  name: Apache ZooKeeper Cluster API
+  description: Cluster and ensemble information
+  humanURL: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
+  baseURL: http://localhost:8080/commands
+  tags:
+  - Cluster
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-zookeeper-cluster-api-openapi.yml
+  - type: Documentation
+    url: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
+- aid: apache-zookeeper:apache-zookeeper-configuration-api
+  name: Apache ZooKeeper Configuration API
+  description: Server configuration information
+  humanURL: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
+  baseURL: http://localhost:8080/commands
+  tags:
+  - Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-zookeeper-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
+- aid: apache-zookeeper:apache-zookeeper-health-api
+  name: Apache ZooKeeper Health API
+  description: Server health checks
+  humanURL: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
+  baseURL: http://localhost:8080/commands
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-zookeeper-health-api-openapi.yml
+  - type: Documentation
+    url: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
+- aid: apache-zookeeper:apache-zookeeper-monitoring-api
+  name: Apache ZooKeeper Monitoring API
+  description: Server statistics and metrics
+  humanURL: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
+  baseURL: http://localhost:8080/commands
+  tags:
+  - Monitoring
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-zookeeper-monitoring-api-openapi.yml
+  - type: Documentation
+    url: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
+- aid: apache-zookeeper:apache-zookeeper-watches-api
+  name: Apache ZooKeeper Watches API
+  description: ZooKeeper watch information
+  humanURL: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
+  baseURL: http://localhost:8080/commands
+  tags:
+  - Watches
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-zookeeper-watches-api-openapi.yml
+  - type: Documentation
+    url: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
 common:
   - type: AgenticAccess
     url: agentic-access/apache-zookeeper-agentic-access.yml
