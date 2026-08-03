@@ -1,0 +1,22 @@
+{
+  "provider": "apache-zookeeper",
+  "sources": [
+    "apache-zookeeper-cluster-api-openapi.yml",
+    "apache-zookeeper-configuration-api-openapi.yml",
+    "apache-zookeeper-health-api-openapi.yml",
+    "apache-zookeeper-monitoring-api-openapi.yml",
+    "apache-zookeeper-watches-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-zookeeper-cluster-api-openapi.yml",
+    "apache-zookeeper-configuration-api-openapi.yml",
+    "apache-zookeeper-health-api-openapi.yml",
+    "apache-zookeeper-monitoring-api-openapi.yml",
+    "apache-zookeeper-watches-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
