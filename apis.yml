@@ -119,6 +119,11 @@ apis:
   - type: Documentation
     url: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
 common:
+  - type: CodeOfConduct
+    url: https://github.com/apache/.github/blob/main/.github/CODE_OF_CONDUCT.md
+  - type: License
+    name: Apache-2.0
+    url: https://github.com/apache/zookeeper/blob/master/LICENSE
   - type: AgenticAccess
     url: agentic-access/apache-zookeeper-agentic-access.yml
   - type: VulnerabilityDisclosure
