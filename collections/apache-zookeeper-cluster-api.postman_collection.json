@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "7da86469-dd99-4db8-92ac-9ec0630765db",
+      "name": "Cluster",
+      "description": {
+        "content": "Cluster and ensemble information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6aec793-bc59-4cd9-ad0b-6e31a36bfa2b",
+          "name": "Apache ZooKeeper Get Current Voting View",
+          "request": {
+            "name": "Apache ZooKeeper Get Current Voting View",
+            "description": {
+              "content": "Returns the current voting members in the ensemble.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "voting_view"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e1fb9f2-a8a1-4013-9498-f2d2a8a9bcf7",
+              "name": "Voting view",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "voting_view"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2c9a983-a50a-4c6e-bdfc-f41f0bc3582e",
+          "name": "Apache ZooKeeper Check if Leader",
+          "request": {
+            "name": "Apache ZooKeeper Check if Leader",
+            "description": {
+              "content": "Returns whether the server is the current leader.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leader"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d080345-bb32-4803-9b8d-a38aae21926c",
+              "name": "Leader status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leader"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/commands",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6910c03f-1619-4193-8f03-0ec54a6b0b1c",
+    "name": "Apache ZooKeeper Admin Server Cluster API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ZooKeeper Admin Server provides an HTTP interface for monitoring and management commands. It exposes four-letter-word equivalent commands as REST endpoints for cluster monitoring, configuration, and diagnostics.\n\nContact Support:\n Name: Apache ZooKeeper",
+      "type": "text/plain"
+    }
+  }
+}

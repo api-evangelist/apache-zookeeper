@@ -1,0 +1,242 @@
+{
+  "item": [
+    {
+      "id": "9d867d90-1949-4614-b845-554a4c2f63e8",
+      "name": "Watches",
+      "description": {
+        "content": "ZooKeeper watch information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ae91c61c-e742-4cff-b8e2-fa366ea286e5",
+          "name": "Apache ZooKeeper Get Watch Summary",
+          "request": {
+            "name": "Apache ZooKeeper Get Watch Summary",
+            "description": {
+              "content": "Returns brief information on watches. Equivalent to the 'wchs' four-letter-word command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wchs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "070ee46b-c42c-41f1-97f7-7b181d8b8f30",
+              "name": "Watch summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wchs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d2080c8-dba0-410a-af8b-a6109177c13b",
+          "name": "Apache ZooKeeper Get Watches by Connection",
+          "request": {
+            "name": "Apache ZooKeeper Get Watches by Connection",
+            "description": {
+              "content": "Lists detailed information on watches by connection (session). Equivalent to the 'wchc' four-letter-word command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wchc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "318244c6-b280-4b5c-a322-d0b79c71d3d1",
+              "name": "Watches by connection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wchc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "30cec7cd-84bb-4624-aa35-db48098704a0",
+          "name": "Apache ZooKeeper Get Watches by Path",
+          "request": {
+            "name": "Apache ZooKeeper Get Watches by Path",
+            "description": {
+              "content": "Lists detailed information on watches by path. Equivalent to the 'wchp' four-letter-word command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wchp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c138849-9152-4ff2-9fe9-21cfbe3d5ebb",
+              "name": "Watches by path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wchp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/commands",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1c105753-73bf-4c5e-96e1-053677131787",
+    "name": "Apache ZooKeeper Admin Server Cluster Watches API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ZooKeeper Admin Server provides an HTTP interface for monitoring and management commands. It exposes four-letter-word equivalent commands as REST endpoints for cluster monitoring, configuration, and diagnostics.\n\nContact Support:\n Name: Apache ZooKeeper",
+      "type": "text/plain"
+    }
+  }
+}

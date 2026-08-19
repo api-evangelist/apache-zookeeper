@@ -1,0 +1,662 @@
+{
+  "item": [
+    {
+      "id": "70f247a1-4846-4bf8-9fdf-499ca2a0e33d",
+      "name": "Monitoring",
+      "description": {
+        "content": "Server statistics and metrics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c723b057-7077-48a0-b1d7-448eb433269b",
+          "name": "Apache ZooKeeper List Client Connections",
+          "request": {
+            "name": "Apache ZooKeeper List Client Connections",
+            "description": {
+              "content": "Returns information about all client connections. Equivalent to the 'cons' four-letter-word command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94588e6f-8c51-4827-9641-d0e1417cb5fd",
+              "name": "Client connections information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a9a3b57-b4b9-4eb4-b844-6893d73e9892",
+          "name": "Apache ZooKeeper Reset Connection Statistics",
+          "request": {
+            "name": "Apache ZooKeeper Reset Connection Statistics",
+            "description": {
+              "content": "Resets all connection statistics. Equivalent to the 'crst' command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crst"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f288f36-fee9-4102-a484-27c78458b2cf",
+              "name": "Statistics reset",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crst"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f895ee8-9b17-4a3a-b3c1-0802801214ea",
+          "name": "Apache ZooKeeper List Sessions and Ephemeral Nodes",
+          "request": {
+            "name": "Apache ZooKeeper List Sessions and Ephemeral Nodes",
+            "description": {
+              "content": "Lists the outstanding sessions and ephemeral nodes. Equivalent to the 'dump' four-letter-word command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dump"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78c09c47-afac-46f5-a38e-3d73e7dce800",
+              "name": "Session and ephemeral node information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dump"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f75a59bb-d5b3-4a13-8403-c12fadca1771",
+          "name": "Apache ZooKeeper Get Server Statistics",
+          "request": {
+            "name": "Apache ZooKeeper Get Server Statistics",
+            "description": {
+              "content": "Lists brief details for the server and connected clients. Equivalent to the 'stat' four-letter-word command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stat"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58d1cd46-a7a5-4495-bbd9-27ec7003d9f0",
+              "name": "Server statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stat"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10d2c365-8259-4379-b9fa-dfb11e75059e",
+          "name": "Apache ZooKeeper Get Full Server Details",
+          "request": {
+            "name": "Apache ZooKeeper Get Full Server Details",
+            "description": {
+              "content": "Lists full details for the server. Equivalent to the 'srvr' four-letter-word command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "srvr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1c4522a-b7fa-45e4-87d1-00cdd9bee85c",
+              "name": "Full server details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "srvr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5442d519-c559-49c8-af0b-cfeecf09399b",
+          "name": "Apache ZooKeeper Reset Server Statistics",
+          "request": {
+            "name": "Apache ZooKeeper Reset Server Statistics",
+            "description": {
+              "content": "Resets server statistics. Equivalent to the 'srst' command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "srst"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "270a25a5-965b-4eac-bcf7-1ee171beded2",
+              "name": "Statistics reset",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "srst"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4af8e4a-e09a-4fe1-8165-38f46a66342e",
+          "name": "Apache ZooKeeper Get Monitoring Metrics",
+          "request": {
+            "name": "Apache ZooKeeper Get Monitoring Metrics",
+            "description": {
+              "content": "Returns a list of variables for monitoring the health of the cluster. Equivalent to the 'mntr' four-letter-word command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mntr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d589aec1-73f1-4997-9fa3-1b0cb0ad4fa2",
+              "name": "Monitoring metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mntr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8fe365fd-c318-41a5-83e0-168bcafa3ca9",
+          "name": "Apache ZooKeeper Get Data Tree Digest",
+          "request": {
+            "name": "Apache ZooKeeper Get Data Tree Digest",
+            "description": {
+              "content": "Returns the digest of the data tree.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18dc15bb-a2d4-4625-bada-c39fe2c7926a",
+              "name": "Data tree digest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7488c496-a61a-4936-95fc-1a2cbadadd48",
+          "name": "Apache ZooKeeper Get Last Snapshot Info",
+          "request": {
+            "name": "Apache ZooKeeper Get Last Snapshot Info",
+            "description": {
+              "content": "Returns information about the last snapshot taken.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "last_snapshot"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23fd68c4-2e87-497d-8a70-075bf9336275",
+              "name": "Last snapshot information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "last_snapshot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/commands",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2bbcbc95-2436-4a55-8fbf-92bd315442f7",
+    "name": "Apache ZooKeeper Admin Server Cluster Monitoring API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ZooKeeper Admin Server provides an HTTP interface for monitoring and management commands. It exposes four-letter-word equivalent commands as REST endpoints for cluster monitoring, configuration, and diagnostics.\n\nContact Support:\n Name: Apache ZooKeeper",
+      "type": "text/plain"
+    }
+  }
+}

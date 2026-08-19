@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache ZooKeeper Admin Server Cluster Health API",
+    "version": "3.9.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ZooKeeper Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/ruok"
+          },
+          "docs": "Tests if server is running in a non-error state. Returns imok if healthy. Equivalent to the 'ruok' command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Check Read-only Mode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/isro"
+          },
+          "docs": "Tests if server is in read-only mode. Equivalent to 'isro' command."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

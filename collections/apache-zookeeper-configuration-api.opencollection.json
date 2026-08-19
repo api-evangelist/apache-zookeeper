@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache ZooKeeper Admin Server Cluster Configuration API",
+    "version": "3.9.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Server Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/conf"
+          },
+          "docs": "Returns details of the current server configuration. Equivalent to the 'conf' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Server Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/environment"
+          },
+          "docs": "Returns details of the serving environment. Equivalent to the 'envi' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Data Directory Sizes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/dirs"
+          },
+          "docs": "Shows the total size of snapshot and log files in bytes."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Initial Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/initial_configuration"
+          },
+          "docs": "Returns the initial configuration text used to start the ensemble."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get JVM System Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/system_properties"
+          },
+          "docs": "Returns the JVM system properties."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

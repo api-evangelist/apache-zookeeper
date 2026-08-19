@@ -1,0 +1,382 @@
+{
+  "item": [
+    {
+      "id": "3c762f72-041b-497c-a7fc-c56f3a41a7e6",
+      "name": "Configuration",
+      "description": {
+        "content": "Server configuration information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53bb9f75-21c9-4399-bc24-a409ff512da3",
+          "name": "Apache ZooKeeper Get Server Configuration",
+          "request": {
+            "name": "Apache ZooKeeper Get Server Configuration",
+            "description": {
+              "content": "Returns details of the current server configuration. Equivalent to the 'conf' four-letter-word command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conf"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ce08b10-3a2f-401e-9748-2780dd8f050a",
+              "name": "Server configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e5126f8-04f9-492c-8612-f8aa87d0a89e",
+          "name": "Apache ZooKeeper Get Server Environment",
+          "request": {
+            "name": "Apache ZooKeeper Get Server Environment",
+            "description": {
+              "content": "Returns details of the serving environment. Equivalent to the 'envi' four-letter-word command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "environment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f7743cd8-1e86-432f-ba17-d36c364f8b1d",
+              "name": "Server environment details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "environment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9d78606-83c0-4611-88c0-c5c887e47be0",
+          "name": "Apache ZooKeeper Get Data Directory Sizes",
+          "request": {
+            "name": "Apache ZooKeeper Get Data Directory Sizes",
+            "description": {
+              "content": "Shows the total size of snapshot and log files in bytes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dirs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57a41810-f2d1-4b40-be3a-5d2172f4b75a",
+              "name": "Directory sizes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dirs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47d60b5a-407d-4fdb-8ef6-b55f58295c8f",
+          "name": "Apache ZooKeeper Get Initial Configuration",
+          "request": {
+            "name": "Apache ZooKeeper Get Initial Configuration",
+            "description": {
+              "content": "Returns the initial configuration text used to start the ensemble.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "initial_configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "531297e9-3197-4f23-ab97-7afac0c07edf",
+              "name": "Initial configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "initial_configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c3f132e-8ed7-402c-9b49-030bd1259aeb",
+          "name": "Apache ZooKeeper Get JVM System Properties",
+          "request": {
+            "name": "Apache ZooKeeper Get JVM System Properties",
+            "description": {
+              "content": "Returns the JVM system properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "system_properties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c02af491-dba7-4de6-8d04-110f884afc00",
+              "name": "System properties",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "system_properties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/commands",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fdcb8d6f-7ac7-4705-8408-539e6130785b",
+    "name": "Apache ZooKeeper Admin Server Cluster Configuration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ZooKeeper Admin Server provides an HTTP interface for monitoring and management commands. It exposes four-letter-word equivalent commands as REST endpoints for cluster monitoring, configuration, and diagnostics.\n\nContact Support:\n Name: Apache ZooKeeper",
+      "type": "text/plain"
+    }
+  }
+}

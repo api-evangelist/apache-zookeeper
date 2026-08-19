@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "f74b0711-65a5-48c8-b2a9-836f268572d0",
+      "name": "Health",
+      "description": {
+        "content": "Server health checks",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d7302be1-40ca-4845-9650-90bdaf374580",
+          "name": "Apache ZooKeeper Health Check",
+          "request": {
+            "name": "Apache ZooKeeper Health Check",
+            "description": {
+              "content": "Tests if server is running in a non-error state. Returns imok if healthy. Equivalent to the 'ruok' command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ruok"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63a0dffc-e1a6-4c11-9819-fcd5b5607549",
+              "name": "Server health status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ruok"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28d4dce2-892a-4898-b8f9-32bb7868ea90",
+          "name": "Apache ZooKeeper Check Read-only Mode",
+          "request": {
+            "name": "Apache ZooKeeper Check Read-only Mode",
+            "description": {
+              "content": "Tests if server is in read-only mode. Equivalent to 'isro' command.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "isro"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47ee7db2-6f74-42ea-b135-95e228e8c11e",
+              "name": "Read-only mode status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "isro"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/commands",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ed515bb4-8eeb-4d2d-96ef-174d41c36026",
+    "name": "Apache ZooKeeper Admin Server Cluster Health API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ZooKeeper Admin Server provides an HTTP interface for monitoring and management commands. It exposes four-letter-word equivalent commands as REST endpoints for cluster monitoring, configuration, and diagnostics.\n\nContact Support:\n Name: Apache ZooKeeper",
+      "type": "text/plain"
+    }
+  }
+}

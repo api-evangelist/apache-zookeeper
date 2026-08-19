@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache ZooKeeper Admin Server Cluster Monitoring API",
+    "version": "3.9.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Monitoring",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ZooKeeper List Client Connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/cons"
+          },
+          "docs": "Returns information about all client connections. Equivalent to the 'cons' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Reset Connection Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/crst"
+          },
+          "docs": "Resets all connection statistics. Equivalent to the 'crst' command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper List Sessions and Ephemeral Nodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/dump"
+          },
+          "docs": "Lists the outstanding sessions and ephemeral nodes. Equivalent to the 'dump' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Server Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/stat"
+          },
+          "docs": "Lists brief details for the server and connected clients. Equivalent to the 'stat' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Full Server Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/srvr"
+          },
+          "docs": "Lists full details for the server. Equivalent to the 'srvr' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Reset Server Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/srst"
+          },
+          "docs": "Resets server statistics. Equivalent to the 'srst' command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Monitoring Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/mntr"
+          },
+          "docs": "Returns a list of variables for monitoring the health of the cluster. Equivalent to the 'mntr' four-letter-word command."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Data Tree Digest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/hash"
+          },
+          "docs": "Returns the digest of the data tree."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Last Snapshot Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/last_snapshot"
+          },
+          "docs": "Returns information about the last snapshot taken."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

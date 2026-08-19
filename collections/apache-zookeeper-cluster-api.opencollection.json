@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache ZooKeeper Admin Server Cluster API",
+    "version": "3.9.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ZooKeeper Get Current Voting View",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/voting_view"
+          },
+          "docs": "Returns the current voting members in the ensemble."
+        },
+        {
+          "info": {
+            "name": "Apache ZooKeeper Check if Leader",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/commands/leader"
+          },
+          "docs": "Returns whether the server is the current leader."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
