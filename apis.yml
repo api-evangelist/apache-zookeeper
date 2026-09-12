@@ -139,6 +139,8 @@ apis:
   - type: Documentation
     url: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
 common:
+  - type: Website
+    url: https://www.apache.org/
   - type: CodeOfConduct
     url: https://github.com/apache/.github/blob/main/.github/CODE_OF_CONDUCT.md
   - type: License
