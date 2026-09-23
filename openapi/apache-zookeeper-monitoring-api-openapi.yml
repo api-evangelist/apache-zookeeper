@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Apache ZooKeeper Admin Server Cluster Monitoring API
+  title: Apache ZooKeeper Admin Server Monitoring API
   description: The ZooKeeper Admin Server provides an HTTP interface for monitoring and management commands. It exposes four-letter-word equivalent commands as REST endpoints for cluster monitoring, configuration, and diagnostics.
   version: 3.9.0
   contact:

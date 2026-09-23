@@ -1,11 +1,7 @@
 {
   "provider": "apache-zookeeper",
   "sources": [
-    "apache-zookeeper-cluster-api-openapi.yml",
-    "apache-zookeeper-configuration-api-openapi.yml",
-    "apache-zookeeper-health-api-openapi.yml",
-    "apache-zookeeper-monitoring-api-openapi.yml",
-    "apache-zookeeper-watches-api-openapi.yml"
+    "_original/zookeeper-admin-api.yml"
   ],
   "outputs": [
     "apache-zookeeper-cluster-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "zookeeper-admin-api.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "apache-zookeeper-cluster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-zookeeper-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-zookeeper-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-zookeeper-monitoring-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-zookeeper-watches-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
