@@ -140,6 +140,12 @@ apis:
   - type: Documentation
     url: https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw
 common:
+  - type: Plans
+    url: plans/apache-zookeeper-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/apache-zookeeper-rate-limits.yml
+  - type: FinOps
+    url: finops/apache-zookeeper-finops.yml
   - type: Website
     url: https://www.apache.org/
   - type: CodeOfConduct
