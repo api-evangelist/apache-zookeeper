@@ -1,4 +1,4 @@
-# Apache ZooKeeper (apache-zookeeper)
+# Apache ZooKeeper
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,89 +66,132 @@
 
 Apache ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services for distributed systems. It provides a hierarchical key-value store (znodes), watches for change notifications, ephemeral nodes for presence detection, and sequential nodes for leader election and distributed locking. ZooKeeper exposes a Java/C client API and an HTTP Admin Server API for monitoring and management. It is widely used by Kafka, Hadoop, HBase, Storm, and other distributed systems.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/apache-zookeeper/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/apache-zookeeper/refs/heads/main/apis.yml)
+**Areas:** Configuration Management · Distributed Coordination · Leader Election · Service Discovery · Open Source
 
-## Scope
+## Apache ZooKeeper on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Apache ZooKeeper is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apache-zookeeper/](https://apis.io/providers/apache-zookeeper/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Configuration Management
-- Distributed Coordination
-- Leader Election
-- Service Discovery
-- Open Source
+- [Apache ZooKeeper Client API](https://apis.io/apis/apache-zookeeper/apache-zookeeper-client-api/) — The ZooKeeper client API provides Java and C language bindings for distributed coordination operations. Operations include create (create znodes), delete,…
+- [Apache ZooKeeper Cluster API](https://apis.io/apis/apache-zookeeper/apache-zookeeper-cluster-api/) — Cluster and ensemble information
+- [Apache ZooKeeper Configuration API](https://apis.io/apis/apache-zookeeper/apache-zookeeper-configuration-api/) — Server configuration information
+- [Apache ZooKeeper Health API](https://apis.io/apis/apache-zookeeper/apache-zookeeper-health-api/) — Server health checks
+- [Apache ZooKeeper Monitoring API](https://apis.io/apis/apache-zookeeper/apache-zookeeper-monitoring-api/) — Server statistics and metrics
+- [Apache ZooKeeper Watches API](https://apis.io/apis/apache-zookeeper/apache-zookeeper-watches-api/) — ZooKeeper watch information
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Apache ZooKeeper Admin Server API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The ZooKeeper Admin Server provides HTTP endpoints on port 8080 that expose the four-letter-word equivalent commands as REST endpoints for cluster monitoring, configuration, and diagnostics. Endpoints include /commands/conf (server configuration), /commands/stats (server statistics), /commands/mntr (monitoring metrics), /commands/envi (environment info), /commands/dump (session/ephemeral node dump), /commands/crst (connection reset), and /commands/leader (leader info for QuorumPeerMain).
+- [Apache Zookeeper Agentic Access](https://apis.io/agentic-access/apache-zookeeper/apache-zookeeper-agentic-access/)
 
-- **Human URL:** [https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw](https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw)
-- **Base URL:** `http://localhost:8080/commands`
+#### Collections (6)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- REST
-- Admin
-- Monitoring
-- Cluster Management
+- [Apache ZooKeeper Admin Server Cluster API](https://apis.io/collections/apache-zookeeper/open-apache-zookeeper-cluster-api/)
+- [Apache ZooKeeper Admin Server Cluster Configuration API](https://apis.io/collections/apache-zookeeper/open-apache-zookeeper-configuration-api/)
+- [Apache ZooKeeper Admin Server Cluster Health API](https://apis.io/collections/apache-zookeeper/open-apache-zookeeper-health-api/)
+- [Apache ZooKeeper Admin Server Cluster Monitoring API](https://apis.io/collections/apache-zookeeper/open-apache-zookeeper-monitoring-api/)
+- [Apache ZooKeeper Admin Server Cluster Watches API](https://apis.io/collections/apache-zookeeper/open-apache-zookeeper-watches-api/)
+- [Apache ZooKeeper Admin Server API](https://apis.io/collections/apache-zookeeper/open-zookeeper-admin-api/)
 
-#### Properties
+#### Governance rules (1)
 
-- [Documentation](https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_4lw)
-- [OpenAPI](openapi/zookeeper-admin-api.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/zookeeper-admin-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/zookeeper-admin-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Spectral rulesets for the provider's contracts.
 
-### Apache ZooKeeper Client API
+- [Apache ZooKeeper API Rules](https://apis.io/rules/apache-zookeeper/apache-zookeeper-spectral-rules/)
 
-The ZooKeeper client API provides Java and C language bindings for distributed coordination operations. Operations include create (create znodes), delete, exists (check existence), getData, setData, getChildren, getACL, setACL, and multi (batch operations). Watch mechanisms notify clients of znode changes. Curator is the recommended high-level Java client with recipes for distributed locks, leader elections, service discovery, and caches.
+#### Security (2)
 
-- **Human URL:** [https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html](https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html)
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags
+- [Apache Zookeeper Domain Security](https://apis.io/security/apache-zookeeper/apache-zookeeper-domain-security/)
+- [Apache Zookeeper Vulnerability Disclosure](https://apis.io/security/apache-zookeeper/apache-zookeeper-vulnerability-disclosure/)
 
-- Java
-- C
-- Coordination
-- Leader Election
+#### Plans and pricing (1)
 
-#### Properties
+Published plans, tiers and prices.
 
-- [Documentation](https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html)
-- [API Reference](https://zookeeper.apache.org/doc/current/apidocs/zookeeper-server/)
-- [SDK](https://search.maven.org/search?q=org.apache.zookeeper)
-- [SDK](https://curator.apache.org/)
-- [Postman Collection](collections/zookeeper-admin-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/zookeeper-admin-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Apache Zookeeper Plans Pricing](https://apis.io/plans/apache-zookeeper/apache-zookeeper-plans-pricing/)
 
-## Common Properties
+#### Rate limits (1)
 
-- [GitHub Repository](https://github.com/apache/zookeeper)
+Published request limits.
+
+- [Apache Zookeeper Rate Limits](https://apis.io/rate-limits/apache-zookeeper/apache-zookeeper-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Apache Zookeeper Finops](https://apis.io/finops/apache-zookeeper/apache-zookeeper-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.apache.org/)
 - [Documentation](https://zookeeper.apache.org/doc/current/)
-- [Portal](https://zookeeper.apache.org/)
-- [Getting Started](https://zookeeper.apache.org/doc/current/zookeeperStarted.html)
-- [Release Notes](https://github.com/apache/zookeeper/releases)
+- [Getting started](https://zookeeper.apache.org/doc/current/zookeeperStarted.html)
 - [Support](https://zookeeper.apache.org/lists.html)
-- [Terms of Service](https://www.apache.org/licenses/)
-- [Spectral Rules](rules/apache-zookeeper-spectral-rules.yml)
-- [SDK](https://pypi.org/project/kazoo/)
-- [SDK](https://www.npmjs.com/package/node-zookeeper-client)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Terms of service](https://www.apache.org/licenses/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
+**Kin Score 37.3** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 42.2 |
+| Contract governance | 13.6 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 59.5 |
+| Access clarity | 18.4 |
+
+**Agent readiness 23.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apache-zookeeper/](https://apis.io/providers/apache-zookeeper/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Apache ZooKeeper: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apache-zookeeper/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
